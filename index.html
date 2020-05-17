@@ -28,13 +28,15 @@ $('document').ready(function () {
   var $body = $('body')
   //Temporary
   //game._guessedLetters = ['a', 'b', 'c']
-  $('<h1></h1>').text(answer).prependTo($body);
+  //$('<h1></h1>').text(answer).prependTo($body);
 
   var $previousGuesses = game._guessedLetters;
   var $previousGuessContainer = $('#previous-guess-container');
 
-//
-
+//upper cased answer for comparison
+answer = answer.map(function(word){
+  return word.toUpperCase();
+})
 
 //Input guesses
 $('.guess-button').on('click', function(){
@@ -51,7 +53,7 @@ $('.guess-button').on('click', function(){
 
 //load correctly guessed letters
 
-//breaking at multiple words - 1st letter
+//breaking at 1st letter - probem is with capital letters
 var loadBoard = function () {
   //remove everything in board
   $board.empty()
@@ -67,12 +69,11 @@ var loadBoard = function () {
       var $letter = $('<p class="letter"></p>');
       var indexOf = $previousGuesses.indexOf(char);
       console.log(indexOf);
-      if(indexOf>=0){
+      if(indexOf > -1){
         $letter.text(char);
       } else {
         $letter.text('___');
       }
-
       $letter.appendTo($word);
 
     });

@@ -36,6 +36,7 @@ Hangman.prototype.guessesToWin = function() {
 Hangman.prototype.guess = function(letter){
   if(!this._gameOver && !this.previousGuess(letter)) {
     //log the guess
+    var letter = letter.toUpperCase();
     this._guessedLetters.push(letter);
 
     var correctGuess = false;
@@ -46,9 +47,8 @@ Hangman.prototype.guess = function(letter){
         //set correctGuess to true
         //return the index
     var answer = this._answer.map(function(word) {
-      return word.toLowerCase();
+      return word.toUpperCase();
     })
-    var letter = letter.toLowerCase();
     for (var word = 0; word < answer.length; word++) {
       for(var char = 0; char < answer[word].length; char++) {
         if(answer[word][char] === letter) {
@@ -72,7 +72,7 @@ Hangman.prototype.guess = function(letter){
 }
 
 Hangman.prototype.previousGuess = function (letter) {
-  var guess = letter.toLowerCase();
+  var guess = letter.toUpperCase();
   if (this._guessedLetters.indexOf(guess) >= 0) {
     console.log('you guessed that already!')
     return true;
