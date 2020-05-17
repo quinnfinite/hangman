@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <head>
+<link rel='stylesheet' href='./stylesheet.css'>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src='./hangman.js'></script>
 </head>
@@ -13,9 +14,6 @@
     <input id='guess' type='text'>
     <button class='guess-button'>Guess</button>
   </div>
-  <div id="previous-guess-container">
-
-  </div>
 
 
 
@@ -25,9 +23,10 @@ $('document').ready(function () {
   var game = new Hangman();
   var answer = game._answer;
   var $board = $('#board')
+  var $body = $('body')
 
   //Temporary
-  game._guessedLetters = ['a', 'b', 'c']
+  //game._guessedLetters = ['a', 'b', 'c']
 
   //for each word  create a div - numbered
     //for each add a space - numbered
@@ -65,15 +64,30 @@ $('.guess-button').on('click', function(){
 })
 
 //appending Previous guesses
-var $previousGuesses = game._guessedLetters;
 
-var $previousGuessContainer = $('#previous-guess-container');
 
-var loadPrev = $previousGuesses.forEach(function (letter) {
+
+
+$('.guess-button').on('click', function () {
+
+  var $previousGuessContainer = $('<div id="previous-guess-container"></div>')
+  $previousGuessContainer.appendTo($body)
+//  var $previousGuessContainer = $('#previous-guess-container');
+
+  //wipe the container
+
+  //reload it
+  var $previousGuesses = game._guessedLetters;
+
+  $previousGuesses.forEach(function (letter) {
   var $prevGuess = $('<p></p>');
   $prevGuess.text(letter);
   $prevGuess.appendTo($previousGuessContainer);
-});
+  });
+
+})
+
+
 
 });
 </script>
