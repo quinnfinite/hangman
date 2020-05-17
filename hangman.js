@@ -1,7 +1,3 @@
-var hello = function () {
-  console.log('hello');
-}
-
 var Hangman = function () {
   this._answer = this.generateAnswer();
   //number of right guesses to win
