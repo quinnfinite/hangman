@@ -63,7 +63,6 @@ Hangman.prototype.guess = function(letter){
     //if correctGuess is false
       //increment wrong guess
     if (!correctGuess) {
-      console.log('wrong guess');
       this._numberOfWrongGuesses++;
     }
     this.gameOver();
@@ -74,12 +73,10 @@ Hangman.prototype.guess = function(letter){
 
 Hangman.prototype.previousGuess = function (letter) {
   var guess = letter.toLowerCase();
-  console.log(this._guessedLetters.indexOf(guess));
   if (this._guessedLetters.indexOf(guess) >= 0) {
     console.log('you guessed that already!')
     return true;
   } else {
-    console.log('You haven\'t guessed that before')
     return false;
   }
 }
@@ -94,7 +91,6 @@ Hangman.prototype.gameOver =  function() {
     console.log('Game Over!');
     return 'Game Over!';
   } else {
-    console.log('Continue');
     return 'Continue';
   }
 }
