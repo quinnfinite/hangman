@@ -17,8 +17,8 @@ var Hangman = function () {
   this._numberOfWrongGuesses = 0;
 }
 
-//var options = [['Guess', 'This'],['Dog'],['Cat'],['Hack','Reactor'],['doormat'],['couch'],['git'],['Visual', 'Studio'],['Zoom']];
-var options = [['dog']];
+var options = [['Guess', 'This'],['Dog'],['Cat'],['Hack','Reactor'],['doormat'],['couch'],['git'],['Visual', 'Studio'],['Zoom']];
+
 Hangman.prototype.generateAnswer = function () {
 
   var randomIndex = Math.ceil(Math.random()*options.length-1)
