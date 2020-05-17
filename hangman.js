@@ -79,7 +79,7 @@ Hangman.prototype.guess = function(letter){
 Hangman.prototype.previousGuess = function (letter) {
   var guess = letter.toLowerCase();
   console.log(this._guessedLetters.indexOf(guess));
-  if (this._guessedLetters.indexOf(guess) > 0) {
+  if (this._guessedLetters.indexOf(guess) >= 0) {
     console.log('you guessed that already!')
     return true;
   } else {
