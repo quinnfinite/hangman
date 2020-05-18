@@ -43,6 +43,14 @@ board prev */
   margin-bottom: 20px;
 }
 
+.word {
+  display: inline-block;
+}
+.letter {
+  display: inline-block;
+  margin: 0px 10px;
+}
+
 #previous-guess-container {
   grid-area: prev;
   border-style: solid;
