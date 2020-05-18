@@ -8,6 +8,8 @@ var Hangman = function () {
   this._guessedLetters = [];
   //Game Over
   this._gameOver = false;
+  this._won = false;
+  this._lost = false;
   //1 for each body part;
   this._wrongGuessAllowed = 6;
   this._numberOfWrongGuesses = 0;
@@ -78,13 +80,17 @@ Hangman.prototype.previousGuess = function (letter) {
 Hangman.prototype.gameOver =  function() {
   if(this._correctGuesses === this._guessesToWin) {
     this._gameOver = true;
+    this._won = true;
     console.log('You win!');
-    return 'You win!';
+    //return 'You win!';
   } else if (this._numberOfWrongGuesses >= this._wrongGuessAllowed) {
     this._gameOver = true;
+    this._lost = true;
     console.log('Game Over!');
-    return 'Game Over!';
+    //return 'Game Over!';
   } else {
-    return 'Continue';
+    console.log('Continue!')
+    //return 'Continue';
   }
+  return this._gameOver;
 }

@@ -15,8 +15,8 @@ board prev */
   'header header header header header'
   'board board board board prev'
   'board board board board prev';
-  margin: 25px;
-
+  padding: 50px;
+  position:relative;
 }
 
 #game-container.h1 {
@@ -37,14 +37,15 @@ board prev */
 
 #board {
   border-style: solid;
-  border-width: 5px;
+  border-width: 0px;
   border-color: white;
   padding: 10px;
-  margin-bottom: 20px;
+  margin: 100px 0px;
 }
 
 .word {
   display: inline-block;
+  margin: 10px 20px;
 }
 .letter {
   display: inline-block;
@@ -56,5 +57,14 @@ board prev */
   border-style: solid;
   border-width: 5px;
   border-color: white;
+  min-width: 200px;
+  text-align: center;
+}
 
+.new-game-container {
+  text-align: center;
+}
+
+.new-game {
+  display: inline-block;
 }
