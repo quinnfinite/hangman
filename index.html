@@ -2,7 +2,9 @@
 <head>
 <link rel='stylesheet' href='./stylesheet.css'>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src='./custom-jquery.js'></script>
 <script src='./hangman.js'></script>
+
 </head>
 <body>
 
@@ -16,93 +18,14 @@
       <input id='guess' type='text'>
       <button class='guess-button'>Guess</button>
     </div>
-    <div id="previous-guess-container"></div>
+    <div id="previous-guess-container">
+      <h3>Guesses</h3>
+    </div>
+
+  </div>
+  <div class='new-game-container'>
+    <button class='new-game'>New Game</button>
   </div>
 
-
-
-
-
-  <!----->
-<script>
-$('document').ready(function () {
-  var game = new Hangman();
-  var answer = game._answer;
-
-  var $board = $('#board')
-  var $body = $('body')
-  //Temporary
-
-  var $previousGuesses = game._guessedLetters;
-  var $previousGuessContainer = $('#previous-guess-container');
-
-//upper cased answer for comparison
-answer = answer.map(function(word){
-  return word.toUpperCase();
-})
-
-//Input guesses
-$('.guess-button').on('click', function(){
-  console.log('guess made');
-  //get the letter from the input
-  var guess = $('#guess').val()
-  //invoke the pass that input to the guessing function
-  console.log('Guess: ', guess);
-  //the below function works when passed a letter
-  game.guess(guess);
-  $('#guess').val('')
-  loadBoard();
-  loadPrev();
-})
-
-//load correctly guessed letters
-
-//breaking at 1st letter - probem is with capital letters
-var loadBoard = function () {
-  //remove everything in board
-  $board.empty()
-
-  answer.forEach(function(word) {
-    var chars = word.split('');
-    //div for word
-    var $word = $('<div class="word"></div>');
-    $word.appendTo($board);
-    chars.forEach(function(char) {
-      var $letter = $('<div class="letter"></div>');
-      var indexOf = $previousGuesses.indexOf(char);
-      if(indexOf > -1){
-        $letter.text(char);
-      } else {
-        $letter.text('___');
-      }
-      $letter.appendTo($word);
-
-    });
-
-  })
-
-
-}
-
-//appending Previous guesses
-var loadPrev = function () {
-//START
-  //wipe the container
-  $previousGuessContainer.empty();
-  //reload it
-  $previousGuesses.forEach(function (letter) {
-  var $prevGuess = $('<p></p>');
-  $prevGuess.text(letter);
-  $prevGuess.appendTo($previousGuessContainer);
-  });
-
-//END
-}
-
-//LOAD THE BOARD
-loadBoard();
-
-});
-</script>
 </body>
 </html>
