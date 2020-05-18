@@ -41,11 +41,7 @@ Hangman.prototype.guess = function(letter){
 
     var correctGuess = false;
     var indices =[];
-    //iterate through the answer array
-      //iterate through each string
-      //if the letter is found
-        //set correctGuess to true
-        //return the index
+
     var answer = this._answer.map(function(word) {
       return word.toUpperCase();
     })
@@ -60,8 +56,6 @@ Hangman.prototype.guess = function(letter){
       }
     }
 
-    //if correctGuess is false
-      //increment wrong guess
     if (!correctGuess) {
       this._numberOfWrongGuesses++;
     }

@@ -5,16 +5,21 @@
 <script src='./hangman.js'></script>
 </head>
 <body>
-  <h1>Hangman</h1>
-  <!--load the board-->
-  <div id="board-container">
-    <div id='board'>
 
+  <!--load the board-->
+  <div id="game-container">
+    <h1>Hangman</h1>
+    <div id="board-container">
+      <div id='board'>
+
+      </div>
+      <input id='guess' type='text'>
+      <button class='guess-button'>Guess</button>
     </div>
-    <input id='guess' type='text'>
-    <button class='guess-button'>Guess</button>
+    <div id="previous-guess-container"></div>
   </div>
-  <div id="previous-guess-container"></div>
+
+
 
 
 
@@ -27,8 +32,6 @@ $('document').ready(function () {
   var $board = $('#board')
   var $body = $('body')
   //Temporary
-  //game._guessedLetters = ['a', 'b', 'c']
-  //$('<h1></h1>').text(answer).prependTo($body);
 
   var $previousGuesses = game._guessedLetters;
   var $previousGuessContainer = $('#previous-guess-container');
@@ -47,6 +50,7 @@ $('.guess-button').on('click', function(){
   console.log('Guess: ', guess);
   //the below function works when passed a letter
   game.guess(guess);
+  $('#guess').val('')
   loadBoard();
   loadPrev();
 })
@@ -64,11 +68,8 @@ var loadBoard = function () {
     var $word = $('<div class="word"></div>');
     $word.appendTo($board);
     chars.forEach(function(char) {
-      //if char isn't in the
-      console.log(char);
-      var $letter = $('<p class="letter"></p>');
+      var $letter = $('<div class="letter"></div>');
       var indexOf = $previousGuesses.indexOf(char);
-      console.log(indexOf);
       if(indexOf > -1){
         $letter.text(char);
       } else {
