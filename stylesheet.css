@@ -1,0 +1,52 @@
+body {
+  color: white;
+  background-color: black;
+  background-image: url('assets/empty-chalkboard.jpg') ;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* board board board board prev
+board prev */
+
+#game-container {
+  display: grid;
+  grid-template-areas:
+  'header header header header header'
+  'board board board board prev'
+  'board board board board prev';
+  margin: 25px;
+
+}
+
+#game-container.h1 {
+  grid-area: header;
+  text-align: center;
+  display: inline-block;
+}
+
+#board-container {
+  grid-area: board;
+  border-style: solid;
+  border-width: 5px;
+  border-color: white;
+  padding: 10px;
+
+
+}
+
+#board {
+  border-style: solid;
+  border-width: 5px;
+  border-color: white;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+#previous-guess-container {
+  grid-area: prev;
+  border-style: solid;
+  border-width: 5px;
+  border-color: white;
+
+}
