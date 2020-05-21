@@ -18,6 +18,7 @@ $('document').ready(function () {
   var newGame = function () {
     game = new Hangman();
     answer = game._answer;
+    loadHangman();
     answer = answer.map(function(word){
     return word.toUpperCase();
   })
@@ -46,10 +47,36 @@ $('.guess-button').on('click', function(){
   //the below function works when passed a letter
   game.guess(guess);
   $('#guess').val('')
+
   loadBoard();
   loadPrev();
+  loadHangman();
   gameOver();
 })
+
+var loadHangman = function () {
+  var photo;
+
+  if (game._won === true) {
+    photo = 'assets/thank-you.png';
+  } else if (game._numberOfWrongGuesses === 0) {
+    photo = 'assets/BlankNoose.png';
+  } else if (game._numberOfWrongGuesses === 1) {
+    photo = 'assets/head.png';
+  } else if (game._numberOfWrongGuesses === 2) {
+    photo = 'assets/Body.png';
+  } else if (game._numberOfWrongGuesses === 3) {
+    photo = 'assets/one-arm.png';
+  } else if (game._numberOfWrongGuesses === 4) {
+    photo = 'assets/arms.png';
+  } else if (game._numberOfWrongGuesses === 5) {
+    photo = 'assets/one-leg.png';
+  } else {
+    photo = 'assets/dead.png';
+  }
+
+  $('.hangman').attr('src', photo);
+}
 
 //load correctly guessed letters
 
@@ -97,6 +124,9 @@ var loadPrev = function () {
 
 //END
 }
+
+
+
 //gameOver check
 
 var gameOver = function () {
