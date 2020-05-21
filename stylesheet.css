@@ -4,6 +4,17 @@ body {
   background-image: url('assets/empty-chalkboard.jpg') ;
   background-repeat: no-repeat;
   background-size: cover;
+  font-family: 'Fredericka the Great', cursive;
+}
+h1 {
+  font-size: 3em;
+}
+button {
+  height: 70px;
+  width: 180px;
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 30px;
+  border-radius: 13px;
 }
 
 /* board board board board prev
@@ -35,7 +46,7 @@ board prev */
 
 }
 .hangman {
-  max-width: 300px;
+  max-width: 400px;
 }
 
 #board {
@@ -43,7 +54,20 @@ board prev */
   border-width: 0px;
   border-color: white;
   padding: 10px;
-  margin: 100px 0px;
+  margin: 50px 0px;
+}
+
+
+#guess {
+  height: 65px;
+  width: 300px;
+  font-size: 45px;
+  font-family: 'Fredericka the Great', cursive;
+  border-radius: 15px;
+  vertical-align: middle;
+}
+.guess-button {
+  vertical-align: middle;
 }
 
 .word {
@@ -53,6 +77,7 @@ board prev */
 .letter {
   display: inline-block;
   margin: 0px 10px;
+  font-size: 2.5em;
 }
 
 #previous-guess-container {
@@ -62,6 +87,13 @@ board prev */
   border-color: white;
   min-width: 200px;
   text-align: center;
+
+}
+#previous-guess-container p {
+  font-size: 2.5em;
+
+  padding: 15px;
+  display: inline-block;
 }
 
 .new-game-container {

@@ -114,9 +114,9 @@ var loadPrev = function () {
 
   $previousGuessContainer.empty();
   //reload it
-  $('<h3>Guesses</h3>').appendTo($previousGuessContainer)
+  $('<h1>Guesses</h1>').appendTo($previousGuessContainer)
   $previousGuesses.forEach(function (letter) {
-  var $prevGuess = $('<p></p>');
+  var $prevGuess = $('<p class-"previous-guess"></p>');
   $prevGuess.text(letter);
 
   $prevGuess.appendTo($previousGuessContainer);
