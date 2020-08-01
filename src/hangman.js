@@ -17,6 +17,8 @@ var Hangman = function () {
 
 var options = [['Guess', 'This'],['Dog'],['Cat'],['Hack','Reactor'],['doormat'],['couch'],['git'],['Visual', 'Studio'],['Zoom']];
 
+// var options = [['Hack','Reactor']];
+
 Hangman.prototype.generateAnswer = function () {
 
   var randomIndex = Math.ceil(Math.random()*options.length-1)
